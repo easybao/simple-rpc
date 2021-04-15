@@ -24,6 +24,7 @@ public class ConsumerInvocationHandler implements InvocationHandler {
         try (Socket socket = new Socket(host, port);
              ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
              ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream())) {
+
             RpcRequest rpcRequest = RpcRequest.builder()
                     .interfaceName(method.getDeclaringClass().getName())
                     .methodName(method.getName())
